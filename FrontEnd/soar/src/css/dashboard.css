@@ -1,0 +1,114 @@
+.dashboard_container{
+    margin-left: 276px;
+    width: 100%;
+    height: fit-content;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    
+}
+#dbbackground{
+    position: absolute;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.circle_dummy {
+
+    width: 580px;
+height: 533px;
+z-index:20 ;
+margin-left: 280px;
+margin-top:152px;
+
+animation: rotateImage 4s linear infinite;
+transform-origin: center center;
+}
+@keyframes rotateImage {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.soar{
+    width:500px;
+    height:800px;
+    margin-left:320px;
+    margin-top:120px;
+}
+.circle-container {
+    position: relative;
+  }
+  
+
+  
+  .rotating-border {
+    width: 300px;
+    height: 300px;
+    border: 10px solid red;
+    border-radius: 50%;
+    animation: rotateBorder 4s linear infinite;
+    position: relative;
+    background: transparent;
+  }
+  
+  
+  
+  .circling-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    animation: circleBorder 4s linear infinite;
+    top: -10px;
+    left: calc(5% - 10px);
+    background-image: url("../images/plane.png");
+  }
+  
+  #plane{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    /* margin:-60px 0 0 -60px; */
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
+  @keyframes rotateBorder {
+    0% {
+      transform: rotate(0deg);
+      border-color: rgba(54,73,90,1);
+    }
+    25%{
+      border-color: rgba(185,32,38,1);
+    }
+    50%{
+      border-color: rgba(43,166,221,1);
+    }
+    100% {
+      transform: rotate(360deg);
+       border-color: rgba(185,32,38,1);
+    }
+  }
+  @keyframes circleBorder {
+    0% {
+      transform: translate(90px) rotate(0deg);
+    }
+    100% {
+      transform: translate(90px) rotate(360deg);
+    }
+  }
+  
+

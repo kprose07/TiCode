@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 import Splash from './pages/splash';
 import Dashboard from './pages/dashboard';
+import Conversations from './pages/conversations';
+import Profile from './pages/profile';
+import Login from './pages/login';
 
 const root = createRoot(document.getElementById('root'));
 
@@ -15,6 +18,9 @@ root.render(
       <Routes>
         <Route path="/" element={<Splash />} /> {/* Splash as the home page */}
         <Route path="Dashboard" element={<Dashboard />} /> {/* Dashboard route */}
+        <Route path="Conversations" element={<Conversations />} /> {/* Dashboard route */}
+        <Route path="Profile" element={<Profile />} /> {/* Dashboard route */}
+        <Route path="Login" element={<Login />} /> {/* Dashboard route */}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

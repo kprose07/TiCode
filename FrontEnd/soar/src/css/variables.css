@@ -1,4 +1,10 @@
 :root{
     --primaryRed: #D44A58;
     --white: #ffffff;
+    --grey:#D0DAE0;
+}
+@font-face {
+    font-family: 'myanmar-khyay-regular', sans-serif;
+    src: url('../fonts/Khyay\-Regular.ttf');
+    /*URL to font*/
 }
