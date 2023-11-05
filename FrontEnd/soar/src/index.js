@@ -9,6 +9,7 @@ import Dashboard from './pages/dashboard';
 import Conversations from './pages/conversations';
 import Profile from './pages/profile';
 import Login from './pages/login';
+import Register from './pages/register';
 
 const root = createRoot(document.getElementById('root'));
 
@@ -21,6 +22,7 @@ root.render(
         <Route path="Conversations" element={<Conversations />} /> {/* Dashboard route */}
         <Route path="Profile" element={<Profile />} /> {/* Dashboard route */}
         <Route path="Login" element={<Login />} /> {/* Dashboard route */}
+        <Route path="Register" element={<Register />} /> {/* Dashboard route */}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -9,6 +9,7 @@ import '../css/variables.css'
 import dbbg from '../images/sky.png'
 import Soar from '../images/Soart.png'
 import $ from "jquery";
+import SmallNav from '../components/smallnavigation'
 
 const Dashboard = () => {
         //const button = document.getElementById('SoarButton')
@@ -37,6 +38,8 @@ const Dashboard = () => {
     
     return (
         <div>
+            {/* <SmallNav/> */}
+
             <Sidebar />
             <div className="dashboard_container">
                 <img id='dbbackground' src={dbbg} alt="bg" />

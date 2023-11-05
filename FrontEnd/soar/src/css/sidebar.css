@@ -1,118 +1,85 @@
+/* Import any external CSS here */
+
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
-#sidebar {
-    /* font-family: 'Poppins', sans-serif; */
-    -webkit-user-select: none;
-    position: absolute;
-    transform: scaleX(0.98);
-}
-
-a,
-a:hover,
-a:focus {
-    color: #fff !important;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-/* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
-
-.wrapper {
-    display: flex;
-    width: 310px;
-    align-items: stretch;
-    height: max-content;
+/* Style for the "Toggle Sidebar" button */
+.toggle_btn {
+  position: absolute;
+  top: 10px;
+  left: 70%;
+  background-color: var(--primaryRed);
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  z-index: 3; /* Ensure it's above the sidebar */
+  opacity: 0;
 }
 
 #sidebar {
-    width: 280px;
-    height: 100vh;
-    background: var(--primaryRed);
-    color: #fff;
-    transition: all 0.3s;
+  -webkit-user-select: none;
+  position: absolute;
+  width: 280px;
+  height: 100vh;
+  background: var(--primaryRed);
+  color: #fff;
+  transform: translateX(0);
+  transition: transform 0.3s;
+  z-index: 20;
+
 }
 
+#sidebar.active {
+  transform: translateX(-280px);
+}
 
-
+/* Sidebar header styles */
 #sidebar .sidebar-header {
-    display: flex;
-    justify-content: center;
-    background: var(--blue_two);
+  display: flex;
+  justify-content: center;
+  background: var(--blue_two);
 }
 
+/* Sidebar navigation links styles */
 #sidebar ul.components {
-    padding: 20px 0px;
-}
-
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
+  padding: 20px 0px;
 }
 
 #sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+  color: #fff;
+  text-decoration: none;
 }
 
 #sidebar ul li a:hover {
-    color: var(--primaryRed) !important;
-    background: var(--grey);
-    
+  color: var(--primaryRed) !important;
+  background: var(--grey);
 }
 
-#content {
-    width: 100%;
-    padding: 20px;
-    min-height: 100vh;
-    transition: all 0.3s;
+/* Active link styles */
+#sidebar .navLinks a.active {
+  color: var(--primaryRed) !important;
+  background-color: var(--white) !important;
 }
 
+/* Logo styles */
 .soar_logo {
-    width: 246px;
-    height: 107.353px;
-}
-#dashact{
-    width: 100%;
-
-}
-.navLinks{
-    background-color: var(--primaryRed);
-}
-.navLinks a{
-    color: var(--white);
-    font-family: 'myanmar-khyay-regular';
-    background-color: var(--primaryRed);
-    padding-left: 22px !important;
-    font-size: 26px !important;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-left:0px !important;
+  width: 246px;
+  height: 107.353px;
 }
 
-.navLinks a.active {
-    color: var(--primaryRed) !important; 
-    background-color: var(--white) !important;
-  }
-.dashboard {
-    /* position: absolute; */
-    height: max-content;
-    width: 100%;
-    /* border: 5px solid #6d7fcc; */
-}
+/* Other styles specific to your design */
 
-.row_pop {
-    display: flex;
-    flex-direction: row;
-}
-
-/* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
-
-/* @media (max-width: 768px) {
-   
-} */
+/* Add your other styles here */
+@media (max-width: 500px) {
+    .toggle_btn{
+        opacity: 1;
+        z-index: 3;
+    }
+  /* .soar{
+  transform:scale(0.8);
+transform-origin: top left;
+  } */
+ }

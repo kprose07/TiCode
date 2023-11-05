@@ -157,7 +157,7 @@
    }
    .speech_text{
     height: 150px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 320px;
     padding:15px;
    }
@@ -267,3 +267,30 @@ margin-left: 190px;
       box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
     }
   }
+  @media (max-width: 505px) {
+    .dashboard_container {
+        z-index: 7;
+        margin-left: 0px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: max-content;
+        height:100px;
+    }
+    .soar{
+        position: absolute;
+        margin-left: 50%;
+        margin-right: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: 290px;
+
+    }
+    .soar_text{
+        position: absolute;
+        margin-left: 49%;
+        margin-right: 49%;
+        transform: translate(-50%, -50%);
+        
+        margin-top: 640px;
+    }
+
+ }
