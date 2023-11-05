@@ -1,108 +1,123 @@
-// import React, { useState } from 'react';
+import React, { useState } from 'react';
+//css 
+import '../css/login.css';
+import '../css/variables.css'
+const Login = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [formErrors, setFormErrors] = useState({});
 
-// const Login = () => {
-//     // Local state to manage form inputs
-//     const [email, setEmail] = useState('');
-//     const [password, setPassword] = useState('');
-//     const [formErrors, setFormErrors] = useState({});
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
 
-//     // Function to validate email
-//     const validateEmail = (email) => {
-//         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex for validation
-//         return emailRegex.test(email);
-//     };
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setFormErrors({});
+        let errors = {};
+        if (!validateEmail(email)) {
+            errors.email = 'Please enter a valid email address.';
+        }
+        if (!password) {
+            errors.password = 'Please enter your password.';
+        }
+        if (Object.keys(errors).length > 0) {
+            setFormErrors(errors);
+            return;
+        }
+        console.log('Login attempt with:', email, password);
+    };
 
-//     // Function to handle form submission
-//     const handleSubmit = (event) => {
-//         event.preventDefault();
+    const handleRegister = () => {
+        console.log('Redirect to registration form');
+    };
 
-//         // Reset form errors
-//         setFormErrors({});
+    const inputStyle = {
+        margin: '10px 0',
+        padding: '10px',
+        fontSize: '16px',
+        border: '1px solid #ccc',
+        borderRadius: '20px',
+        outline: 'none',
+        boxSizing: 'border-box',
+        width: 'calc(100% - 20px)' // Adjust input width to match new container size
+    };
 
-//         // Form validation
-//         let errors = {};
-//         if (!validateEmail(email)) {
-//             errors.email = 'Please enter a valid email address.';
-//         }
-//         if (!password) {
-//             errors.password = 'Please enter your password.';
-//         }
+    const buttonStyle = {
+        padding: '10px',
+        fontSize: '16px',
+        cursor: 'pointer',
+        backgroundColor: '#36495A',
+        color: 'white',
+        border: 'none',
+        borderRadius: '20px',
+        marginTop: '10px',
+        width: 'calc(100% - 20px)' // Adjust button width to match new container size
+    };
 
-//         // If there are errors, do not submit the form
-//         if (Object.keys(errors).length > 0) {
-//             setFormErrors(errors);
-//             return;
-//         }
+    return (
+        <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+            height: '100vh',
+            backgroundColor: '#f7f7f7',
+            paddingLeft: '50px'
+        }}>
+            <div style={{
+                width: '576px', // Width is now 75% of the original width
+                background: '#FFF',
+                boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+                borderRadius: '8px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                marginLeft: '50px'
+            }}>
+                <div style={{
+                    width: '100%',
+                    height: '50px',
+                    backgroundColor: '#D44A58',
+                    borderRadius: '8px 8px 0 0',
+                }}></div>
+                <form onSubmit={handleSubmit} style={{
+                    padding: '20px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: '100%', // Form will automatically take 100% of the parent width
+                }}>
+                    <h2 style={{ fontWeight: 'bold', fontSize: '24px', textAlign: 'center', margin: '20px 0' }}>Login</h2>
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Email"
+                        style={inputStyle}
+                    />
+                    {formErrors.email && (
+                        <p style={{ color: 'red' }}>{formErrors.email}</p>
+                    )}
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Password"
+                        style={inputStyle}
+                    />
+                    {formErrors.password && (
+                        <p style={{ color: 'red' }}>{formErrors.password}</p>
+                    )}
+                    <button type="submit" className='login_btn'>
+                        Log In
+                    </button>
+                    <button type="button" onClick={handleRegister} className='login_btn'>
+                        Register
+                    </button>
+                </form>
+            </div>
+        </div>
+    );
+}
 
-//         // Here you would usually handle the login logic,
-//         // like sending a request to your server
-//         console.log('Login attempt with:', email, password);
-//     };
-
-//     return (
-//         <div style={{
-//             display: 'flex',
-//             alignItems: 'center',
-//             justifyContent: 'center',
-//             height: '100vh',
-//             backgroundColor: '#f7f7f7'
-//         }}>
-//             <div style={{
-//                 width: '768px',
-//                 height: '769px',
-//                 flexShrink: 0,
-//                 background: '#FFF',
-//                 boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
-//                 display: 'flex',
-//                 flexDirection: 'column',
-//                 justifyContent: 'center',
-//                 alignItems: 'center',
-//                 borderRadius: '8px',
-//             }}>
-//                 <form onSubmit={handleSubmit} style={{
-//                     display: 'flex',
-//                     flexDirection: 'column',
-//                     width: '80%',
-//                 }}>
-//                     <input
-//                         type="email"
-//                         value={email}
-//                         onChange={(e) => setEmail(e.target.value)}
-//                         placeholder="Email"
-//                         style={{ margin: '10px 0', padding: '10px', fontSize: '16px' }}
-//                     />
-//                     {formErrors.email && (
-//                         <p style={{ color: 'red' }}>{formErrors.email}</p>
-//                     )}
-//                     <input
-//                         type="password"
-//                         value={password}
-//                         onChange={(e) => setPassword(e.target.value)}
-//                         placeholder="Password"
-//                         style={{ margin: '10px 0', padding: '10px', fontSize: '16px' }}
-//                     />
-//                     {formErrors.password && (
-//                         <p style={{ color: 'red' }}>{formErrors.password}</p>
-//                     )}
-//                     <button
-//                         type="submit"
-//                         style={{
-//                             padding: '10px',
-//                             fontSize: '16px',
-//                             cursor: 'pointer',
-//                             backgroundColor: '#005f73',
-//                             color: 'white',
-//                             border: 'none',
-//                             borderRadius: '4px',
-//                             marginTop: '10px'
-//                         }}
-//                     >
-//                         Log In
-//                     </button>
-//                 </form>
-//             </div>
-//         </div>
-//     );
-// }
-
-// export default Login;
+export default Login;

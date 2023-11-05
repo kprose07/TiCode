@@ -1,0 +1,11 @@
+.login_btn{
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: var(--darkBlue);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    margin-top: 10px;
+    width: calc(100% - 20px);
+}
