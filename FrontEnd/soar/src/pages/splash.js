@@ -13,7 +13,7 @@ const Splash = () => {
         <div>
             <div className="welc_container">
                 <h1 className="fade-in">Skip Lines And Save Time With SOAR</h1>
-                <div class="text-slide">
+                <div className="text-slide">
                     <div>SOAR WILL </div>
                     <div className="text-wrap">
                         <div className="text">
